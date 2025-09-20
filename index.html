@@ -253,25 +253,9 @@
           </div>
         </div>
 
-        <div style="margin-top:10px">
-          <label for="meal">Meal preference</label>
-          <select id="meal" name="meal">
-            <option value="">No preference</option>
-            <option>Chicken</option>
-            <option>Beef</option>
-            <option>Vegetarian</option>
-            <option>Halal (default)</option>
-          </select>
-        </div>
-
-        <div style="margin-top:10px">
-          <label for="message">Message / notes</label>
-          <textarea id="message" name="message" placeholder="Dietary notes, accessibility, who you're with..."></textarea>
-        </div>
-
-        <div class="actions">
+        
+          <div class="actions">
           <button class="btn" id="submitBtn" type="submit">Send RSVP</button>
-          <button type="button" class="btn secondary" id="downloadCsv">Download RSVPs (CSV)</button>
           <div style="flex:1"></div>
         </div>
 
@@ -282,13 +266,7 @@
         <strong>Privacy:</strong> Your RSVP is stored locally in your browser. To email RSVPs automatically, connect an email service (Formspree / EmailJS). See comments in the page source where to integrate.
       </div>
 
-      <footer>
-        <small>Design preview — replace the `My Invitation.jpeg` image with your final image for printing.</small>
-      </footer>
-    </aside>
-  </div>
-
-  <script>
+       <script>
     // Simple client-side RSVP handler: saves to localStorage and allows CSV export
     const form = document.getElementById('rsvpForm');
     const notice = document.getElementById('formNotice');

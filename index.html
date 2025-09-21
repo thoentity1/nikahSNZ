@@ -14,7 +14,6 @@
       --accent:#d99b83;
       --text:#262626; /* darker font color */
       --muted:#6b6461;
-      --form-bg: rgba(255,255,255,0.85);
       --max-width:1100px;
     }
     html,body{
@@ -126,15 +125,6 @@
       cursor:pointer;
       font-size:14px;
     }
-    .notice{
-      display:none;
-      margin-top:10px;
-      padding:10px;
-      border-radius:8px;
-      font-size:14px;
-      background:#eaf7ee;
-      color:#1f6f3d;
-    }
     @media(max-width:900px){
       .wrap{grid-template-columns:1fr;}
       .invite{order:2;padding:28px;min-height:480px;}
@@ -174,34 +164,34 @@
         <option value="No">No — cannot attend</option>
       </select>
 
-      <button type="submit" class="btn">Send RSVP</button>
-      <div id="formNotice" class="notice"></div>
+      <button type="submit" class="btn">Send RSVP via WhatsApp</button>
     </form>
   </aside>
 </div>
 
+<!-- WhatsApp RSVP Script -->
 <script>
 const form=document.getElementById('rsvpForm');
-const notice=document.getElementById('formNotice');
 
 form.addEventListener('submit',e=>{
   e.preventDefault();
   const fullname=document.getElementById('fullname').value.trim();
   const attending=document.getElementById('attending').value;
+
   if(!fullname||!attending){
-    showNotice('Please complete all required fields.',false);
+    alert("Please complete all required fields.");
     return;
   }
-  showNotice('Thank you! Your RSVP has been noted.',true);
+
+  // Create WhatsApp message
+  const msg = `RSVP for Sania & Zyn:\nName: ${fullname}\nAttending: ${attending}`;
+  const phone = "27843017770"; // WhatsApp number
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+
+  // Open WhatsApp chat in new tab
+  window.open(url, "_blank");
   form.reset();
 });
-
-function showNotice(msg,success){
-  notice.style.display='block';
-  notice.textContent=msg;
-  notice.style.background=success?'#eaf7ee':'#fdeaea';
-  notice.style.color=success?'#1f6f3d':'#9c1c1c';
-}
 </script>
 
 </body>

@@ -17,50 +17,34 @@
     }
 
     html, body {
-      height: 100%;
       margin: 0;
+      height: 100%;
       font-family: "Roboto", sans-serif;
     }
 
     body {
-      background: var(--bg);
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 40px 20px;
+      align-items: center;
+      background: var(--bg);
+      padding: 20px;
     }
 
     .wrap {
       max-width: var(--max-width);
       width: 100%;
-      background: #fff;
-      border-radius: 14px;
-      overflow: hidden;
       display: grid;
       grid-template-columns: 1fr 420px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
       min-height: 680px;
-      align-items: center;
     }
 
-    /* Invitation container */
-    .invite-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+    /* Left side - full image */
+    .invite {
+      background: url('My Invitation.jpg') center center no-repeat;
+      background-size: cover;
     }
 
-    .invite-container img {
-      height: 50%; /* scaled to 50% height */
-      width: auto;
-      border: 5px solid #d99b83;
-      border-radius: 12px;
-      display: block;
-      object-fit: contain;
-    }
-
-    /* RSVP side */
-    .rsvp {
-      padding: 36px;
-      background: #fafafa;
+    /

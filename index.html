@@ -39,7 +39,6 @@
     min-height: 680px;
   }
 
-  /* Left: invitation image container */
   .invite-container {
     flex: 1;
     display: flex;
@@ -51,13 +50,12 @@
   .invite-container img {
     max-height: 100%;
     max-width: 100%;
-    object-fit: contain; /* fit nicely without cropping */
+    object-fit: contain;
     display: block;
     border: 3px solid #d99b83;
     border-radius: 10px;
   }
 
-  /* Right: RSVP panel */
   .rsvp {
     width: 420px;
     background: #fafafa;
@@ -128,7 +126,7 @@
 <body>
 
 <div class="wrap">
-  <!-- Left: scaled invitation image -->
+  <!-- Left: invitation image -->
   <div class="invite-container">
     <img src="My Invitation.jpg" alt="Wedding Invitation"
       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'fallback\'>Invitation image not found. Check file name and path.</div>'">
@@ -166,8 +164,13 @@ form.addEventListener('submit', e => {
   }
 
   const msg = `RSVP for Sania & Zyn:\nName: ${fullname}\nAttending: ${attending}`;
-  const phone = "27843017770";
+  const phone = "21843017770"; // WhatsApp number
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 
   window.open(url, "_blank");
-  for
+  form.reset();
+});
+</script>
+
+</body>
+</html>

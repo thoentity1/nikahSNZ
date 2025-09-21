@@ -9,114 +9,90 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#f7efe8;
-      --accent:#d99b83;
-      --text:#262626;
-      --muted:#6b6461;
-      --max-width:1100px;
+    :root {
+      --bg: #f7efe8;
+      --accent: #d99b83;
+      --text: #262626;
+      --muted: #6b6461;
+      --max-width: 1100px;
     }
 
-    html, body{
-      height:100%;
-      margin:0;
-      font-family:"Roboto",sans-serif;
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: "Roboto", sans-serif;
     }
 
-    body{
-      background:var(--bg);
-      color:var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:40px 20px;
+    body {
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
     }
 
-    .wrap{
-      max-width:var(--max-width);
-      width:100%;
-      background:#fff;
-      border-radius:14px;
-      overflow:hidden;
-      display:grid;
+    .wrap {
+      max-width: var(--max-width);
+      width: 100%;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      display: grid;
       grid-template-columns: 1fr 420px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       min-height: 680px;
+      align-items: center; /* center invite vertically */
     }
 
     /* Invitation side */
-    .invite{
+    .invite {
       background: url('My Invitation.jpg') center center no-repeat;
       background-size: cover;
-      width: 100%;
-      height: 100%;
-      min-height: 680px;
-      border: 5px solid #d99b83; /* border around the invitation */
+      border: 5px solid #d99b83;
       border-radius: 12px;
+      height: 80%; /* only 80% of container height */
+      margin: auto; /* center vertically */
+      width: 100%;
       box-sizing: border-box;
     }
 
     /* RSVP side */
-    .rsvp{
-      padding:36px;
-      background:#fafafa;
+    .rsvp {
+      padding: 36px;
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .rsvp h2{
-      font-family:"Playfair Display", serif;
-      font-size:22px;
-      margin:0 0 12px;
-      font-weight:400;
+    .rsvp h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      margin: 0 0 12px;
+      font-weight: 400;
     }
 
-    form label{
-      display:block;
-      font-size:13px;
-      margin-bottom:4px;
-      color:var(--muted);
+    form label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+      color: var(--muted);
     }
 
-    input, select{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:8px;
-      margin-bottom:14px;
-      font-size:14px;
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      font-size: 14px;
     }
 
-    .btn{
-      background:var(--accent);
-      color:#fff;
-      border:none;
-      padding:10px 16px;
-      border-radius:8px;
-      cursor:pointer;
-      font-size:14px;
-    }
-
-    .btn:hover{
-      background:#c6846c;
-    }
-
-    @media(max-width:900px){
-      .wrap{
-        grid-template-columns:1fr;
-      }
-      .invite{
-        order:2;
-        min-height:480px;
-      }
-      .rsvp{
-        order:1;
-      }
-    }
-  </style>
-</head>
-<body>
-
-<div class="wrap">
-  <!-- Invitation -->
-  <section class="invite"></section>
-
-  <!-- RSVP Form -->
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      c

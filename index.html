@@ -12,7 +12,7 @@
     :root{
       --bg:#f7efe8;
       --accent:#d99b83;
-      --text:#262626; /* darker font color */
+      --text:#262626;
       --muted:#6b6461;
       --max-width:1100px;
     }
@@ -40,55 +40,8 @@
     }
     /* Invitation side */
     .invite{
-      position:relative;
-      padding:48px;
-      display:flex;
-      justify-content:center;
       background:url('My Invitation.jpeg') center/cover no-repeat;
       min-height:680px;
-    }
-    .invite .panel{
-      background:rgba(255,255,255,0.85);
-      padding:20px;
-      border-radius:12px;
-      max-width:460px;
-    }
-    .invite .arabic{
-      font-family:"Playfair Display", serif;
-      font-size:32px;
-      text-align:center;
-      margin-bottom:8px;
-    }
-    .invite .verse{
-      font-size:13px;
-      color:var(--muted);
-      text-align:center;
-      margin-bottom:14px;
-      font-style:italic;
-    }
-    .invite h1{
-      font-family:"Playfair Display", serif;
-      font-size:30px;
-      margin:6px 0 8px 0;
-      text-align:left;
-      font-weight:400;
-    }
-    .invite .names{
-      font-size:40px;
-      text-align:left;
-      margin:12px 0;
-      font-weight:400;
-    }
-    .invite .meta{
-      font-style:italic;
-      color:var(--muted);
-      margin:10px 0;
-    }
-    .timings{
-      text-align:left;
-      font-size:16px;
-      margin:8px 0;
-      font-weight:400;
     }
 
     /* RSVP side */
@@ -130,7 +83,7 @@
     }
     @media(max-width:900px){
       .wrap{grid-template-columns:1fr;}
-      .invite{order:2;padding:28px;min-height:480px;}
+      .invite{order:2;padding:0;min-height:480px;}
       .rsvp{order:1;}
     }
   </style>
@@ -139,19 +92,7 @@
 
 <div class="wrap">
   <!-- Invitation -->
-  <section class="invite">
-    <div class="panel">
-      <div class="arabic">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>
-      <div class="verse">(And He (Allah) put affection between your hearts. — Qurʼan 8:63)</div>
-      <h1>kindly join us</h1>
-      <p style="font-size:13px;text-align:left;">together with our families for the wedding of</p>
-      <div class="names">Sania McKenzie<br>&amp;<br>Zyn Touffie</div>
-      <div class="meta">Saturday, 22 November 2025</div>
-      <div class="timings">Nikah 14h30 — Reception 15h30</div>
-      <div class="meta">21 Barnacle Street<br>Towerby, Buena Vista Country Estate</div>
-      <p style="font-size:13px;text-align:left;">RSVP Sania 084 301 7770 by 6 November '25</p>
-    </div>
-  </section>
+  <section class="invite"></section>
 
   <!-- RSVP Form -->
   <aside class="rsvp">
@@ -182,20 +123,4 @@ form.addEventListener('submit',e=>{
   const attending=document.getElementById('attending').value;
 
   if(!fullname||!attending){
-    alert("Please complete all required fields.");
-    return;
-  }
-
-  // Create WhatsApp message
-  const msg = `RSVP for Sania & Zyn:\nName: ${fullname}\nAttending: ${attending}`;
-  const phone = "27843017770"; // WhatsApp number
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-
-  // Open WhatsApp chat in new tab
-  window.open(url, "_blank");
-  form.reset();
-});
-</script>
-
-</body>
-</html>
+    alert("Please complete all

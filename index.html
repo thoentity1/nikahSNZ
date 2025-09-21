@@ -41,15 +41,16 @@
       display:grid;
       grid-template-columns: 1fr 420px;
       box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      min-height: 680px; /* ensures left side is visible */
     }
 
     /* Invitation side */
     .invite{
       background: url('My Invitation.jpeg') center center no-repeat;
-      background-size: contain; /* Fit full image */
+      background-size: cover; /* fill left panel fully */
       width: 100%;
-      min-height: 680px;
       height: 100%;
+      min-height: 680px;
     }
 
     /* RSVP side */
@@ -59,4 +60,93 @@
     }
 
     .rsvp h2{
-      font
+      font-family:"Playfair Display", serif;
+      font-size:22px;
+      margin:0 0 12px;
+      font-weight:400;
+    }
+
+    form label{
+      display:block;
+      font-size:13px;
+      margin-bottom:4px;
+      color:var(--muted);
+    }
+
+    input, select{
+      width:100%;
+      padding:10px;
+      border:1px solid #ddd;
+      border-radius:8px;
+      margin-bottom:14px;
+      font-size:14px;
+    }
+
+    .btn{
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:10px 16px;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:14px;
+    }
+
+    .btn:hover{
+      background:#c6846c;
+    }
+
+    @media(max-width:900px){
+      .wrap{
+        grid-template-columns:1fr;
+      }
+      .invite{
+        order:2;
+        min-height:480px;
+      }
+      .rsvp{
+        order:1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- Invitation -->
+  <section class="invite"></section>
+
+  <!-- RSVP Form -->
+  <aside class="rsvp">
+    <h2>RSVP</h2>
+    <form id="rsvpForm">
+      <label for="fullname">Full Name *</label>
+      <input type="text" id="fullname" required>
+
+      <label for="attending">Attending *</label>
+      <select id="attending" required>
+        <option value="">Please choose</option>
+        <option value="Yes">Yes — I will attend</option>
+        <option value="No">No — cannot attend</option>
+      </select>
+
+      <button type="submit" class="btn">Send RSVP via WhatsApp</button>
+    </form>
+  </aside>
+</div>
+
+<!-- WhatsApp RSVP Script -->
+<script>
+const form=document.getElementById('rsvpForm');
+
+form.addEventListener('submit', e=>{
+  e.preventDefault();
+  const fullname=document.getElementById('fullname').value.trim();
+  const attending=document.getElementById('attending').value;
+
+  if(!fullname || !attending){
+    alert("Please complete all required fields.");
+    return;
+  }
+
+  const msg = `RSVP for Sania & Zyn:\nName: ${fullname}\nAttending: ${attending}`;

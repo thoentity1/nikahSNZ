@@ -39,20 +39,22 @@
     min-height: 680px;
   }
 
-  /* Left: invitation image fills container */
+  /* Left: invitation image container */
   .invite-container {
-    flex: 1; /* fills left side */
+    flex: 1;
     display: flex;
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
   }
 
   .invite-container img {
-    flex: 1;
-    width: auto;
-    height: 100%;
-    object-fit: cover; /* fills left panel fully */
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain; /* fit nicely without cropping */
     display: block;
     border: 3px solid #d99b83;
+    border-radius: 10px;
   }
 
   /* Right: RSVP panel */
@@ -109,15 +111,12 @@
     .rsvp {
       width: 100%;
     }
-    .invite-container {
-      height: 300px;
-    }
     .invite-container img {
-      object-fit: contain;
+      width: 100%;
+      height: auto;
     }
   }
 
-  /* fallback */
   .fallback {
     font-size: 16px;
     color: red;
@@ -129,7 +128,7 @@
 <body>
 
 <div class="wrap">
-  <!-- Left: full invitation image -->
+  <!-- Left: scaled invitation image -->
   <div class="invite-container">
     <img src="My Invitation.jpg" alt="Wedding Invitation"
       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'fallback\'>Invitation image not found. Check file name and path.</div>'">
@@ -171,9 +170,4 @@ form.addEventListener('submit', e => {
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 
   window.open(url, "_blank");
-  form.reset();
-});
-</script>
-
-</body>
-</html>
+  for

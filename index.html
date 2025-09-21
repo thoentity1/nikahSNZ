@@ -20,13 +20,13 @@
       margin: 0;
       height: 100%;
       font-family: "Roboto", sans-serif;
+      background: var(--bg);
     }
 
     body {
       display: flex;
       justify-content: center;
       align-items: center;
-      background: var(--bg);
       padding: 20px;
     }
 
@@ -41,10 +41,46 @@
       min-height: 680px;
     }
 
-    /* Left side - full image */
-    .invite {
-      background: url('My Invitation.jpg') center center no-repeat;
-      background-size: cover;
+    /* Left side: invitation image */
+    .invite-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    /
+    .invite-container img {
+      height: 100%;      /* fill top to bottom */
+      width: auto;
+      display: block;
+      object-fit: contain;
+      border: 3px solid #d99b83;
+      border-radius: 10px;
+    }
+
+    /* Right side: RSVP */
+    .rsvp {
+      background: #fafafa;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .rsvp h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    form label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+      color: var(--muted);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px

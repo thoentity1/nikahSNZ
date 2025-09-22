@@ -39,6 +39,7 @@
     min-height: 680px;
   }
 
+  /* Left: Invitation image */
   .invite-container {
     flex: 1;
     overflow-y: auto; /* scroll if image is tall */
@@ -49,8 +50,9 @@
     background: #fff;
   }
 
-   .invite-container img {
-    max-height: 60%;
+  .invite-container img {
+    width: 100%;
+    height: auto;
     max-width: 100%;
     object-fit: contain;
     display: block;
@@ -58,6 +60,7 @@
     border-radius: 10px;
   }
 
+  /* Right: RSVP panel */
   .rsvp {
     width: 420px;
     background: #fafafa;
@@ -187,7 +190,7 @@ inviteForm.addEventListener('submit', e => {
     return;
   }
 
-  // Add RSVP link (this page URL — replace with your hosted link if different)
+  // Add RSVP link (this page URL)
   const rsvpLink = window.location.href;
 
   const msg = `Dear ${guestname},\n\nYou are invited to the wedding of Sania & Zyn 🎉\nAdmits: ${admit}\n\nPlease RSVP here: ${rsvpLink}`;

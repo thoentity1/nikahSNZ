@@ -52,7 +52,7 @@
     }
 
     .invite-container img {
-      height: 50%;      /* smaller height for a neat fit */
+      height: 50%;      /* smaller height for neat fit */
       width: auto;
       border: 5px solid #d99b83;
       border-radius: 12px;
@@ -121,8 +121,8 @@
       }
     }
 
-    /* Optional fallback text style */
-    .invite-container .fallback {
+    /* Fallback text */
+    .fallback {
       font-size: 16px;
       color: red;
       text-align: center;
@@ -134,7 +134,8 @@
 <div class="wrap">
   <!-- Invitation -->
   <div class="invite-container">
-    <img src="My Invitation.jpg" alt="Wedding Invitation" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'fallback\'>Invitation image not found. Check file name and path.</div>'">
+    <img src="My Invitation.jpg" alt="Wedding Invitation" 
+         onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'fallback\'>Invitation image not found. Check file name and path.</div>'">
   </div>
 
   <!-- RSVP Form -->

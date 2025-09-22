@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sania & Zyn — Invitation & RSVP</title>
 
+  <!-- Google font -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
@@ -52,12 +53,14 @@
     }
 
     .invite-container img {
-      height: 50%;      /* smaller height for neat fit */
+      max-height: 60vh;   /* scale relative to screen */
+      max-width: 100%;
       width: auto;
+      height: auto;
       border: 5px solid #d99b83;
       border-radius: 12px;
-      display: block;
       object-fit: contain;
+      display: block;
     }
 
     /* RSVP side */
@@ -117,7 +120,7 @@
         order: 1;
       }
       .invite-container img {
-        height: 40%;
+        max-height: 40vh; /* smaller for mobile */
       }
     }
 
@@ -146,38 +149,4 @@
       <input type="text" id="fullname" required>
 
       <label for="attending">Attending *</label>
-      <select id="attending" required>
-        <option value="">Please choose</option>
-        <option value="Yes">Yes — I will attend</option>
-        <option value="No">No — cannot attend</option>
-      </select>
-
-      <button type="submit" class="btn">Send RSVP via WhatsApp</button>
-    </form>
-  </aside>
-</div>
-
-<script>
-const form = document.getElementById('rsvpForm');
-
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  const fullname = document.getElementById('fullname').value.trim();
-  const attending = document.getElementById('attending').value;
-
-  if (!fullname || !attending) {
-    alert("Please complete all required fields.");
-    return;
-  }
-
-  const msg = `RSVP for Sania & Zyn:\nName: ${fullname}\nAttending: ${attending}`;
-  const phone = "27843017770"; // WhatsApp number
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-
-  window.open(url, "_blank");
-  form.reset();
-});
-</script>
-
-</body>
-</html>
+      <select id="attending

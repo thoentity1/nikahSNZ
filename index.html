@@ -1,175 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sania & Zyn — Invitation & RSVP</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-
   <style>
-    :root {
-      --bg: #f7efe8;
-      --accent: #d99b83;
-      --text: #262626;
-      --muted: #6b6461;
-      --max-width: 1100px;
-    }
-
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: "Roboto", sans-serif;
-    }
-
     body {
-      background: var(--bg);
+      margin: 0;
+      font-family: Arial, sans-serif;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-
-    .wrap {
-      max-width: var(--max-width);
-      width: 100%;
-      background: #fff;
-      border-radius: 14px;
+      height: 100vh;
       overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      min-height: 680px;
-      align-items: center;
     }
-
-    /* Invitation side */
-    .invite-container {
+    .container {
       display: flex;
-      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+    .left {
+      width: 50%;
+      display: flex;
       justify-content: center;
-      padding: 20px;
+      align-items: center;
+      overflow-y: auto;
+      background: #f8f8f8;
     }
-
-    .invite-container img {
-      height: 60%;      /* scaled to fit nicely */
-      width: auto;
-      border: 5px solid #d99b83;
-      border-radius: 12px;
-      display: block;
+    .left img {
+      max-width: 90%;
+      max-height: 60%;
       object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-
-    /* RSVP side */
-    .rsvp {
-      padding: 36px;
-      background: #fafafa;
+    .right {
+      width: 50%;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      background: #fff;
     }
-
-    .rsvp h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 22px;
-      margin: 0 0 12px;
-      font-weight: 400;
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
     }
-
-    form label {
+    label {
       display: block;
-      font-size: 13px;
-      margin-bottom: 4px;
-      color: var(--muted);
+      margin-top: 1rem;
     }
-
-    input, select {
+    input {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin-bottom: 14px;
-      font-size: 14px;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
-
-    .btn {
-      background: var(--accent);
-      color: #fff;
+    button {
+      margin-top: 1.5rem;
+      padding: 0.7rem;
+      width: 100%;
+      background: #25D366;
       border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
+      border-radius: 4px;
+      color: white;
+      font-size: 1rem;
       cursor: pointer;
-      font-size: 14px;
     }
-
-    .btn:hover {
-      background: #c6846c;
-    }
-
-    @media(max-width: 900px) {
-      .wrap {
-        grid-template-columns: 1fr;
-      }
-      .invite-container {
-        order: 2;
-      }
-      .rsvp {
-        order: 1;
-      }
-      .invite-container img {
-        height: 50%;
-      }
+    button:hover {
+      background: #1ebe5d;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <!-- Left side with JPG -->
+    <div class="left">
+      <img src="invitation.jpg" alt="Wedding Invitation">
+    </div>
 
-<div class="wrap">
-  <!-- Invitation -->
-  <div class="invite-container">
-    <img src="My Invitation.jpg" alt="Wedding Invitation">
+    <!-- Right side with RSVP -->
+    <div class="right">
+      <h1>RSVP to Sania & Zyn</h1>
+      <form id="rsvpForm">
+        <label for="guestName">Guest Name</label>
+        <input type="text" id="guestName" name="guestName" placeholder="Enter your full name" required>
+
+        <label for="admit">Number of Admits</label>
+        <input type="number" id="admit" name="admit" placeholder="e.g. 2" min="1" required>
+
+        <button type="submit">Send RSVP via WhatsApp</button>
+      </form>
+    </div>
   </div>
 
-  <!-- RSVP Form -->
-  <aside class="rsvp">
-    <h2>RSVP</h2>
-    <form id="rsvpForm">
-      <label for="fullname">Full Name *</label>
-      <input type="text" id="fullname" required>
+  <script>
+    document.getElementById("rsvpForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const guestName = document.getElementById("guestName").value;
+      const admit = document.getElementById("admit").value;
+      const phone = "21843017770"; // host's WhatsApp number
 
-      <label for="attending">Attending *</label>
-      <select id="attending" required>
-        <option value="">Please choose</option>
-        <option value="Yes">Yes — I will attend</option>
-        <option value="No">No — cannot attend</option>
-      </select>
-
-      <button type="submit" class="btn">Send RSVP via WhatsApp</button>
-    </form>
-  </aside>
-</div>
-
-<script>
-const form = document.getElementById('rsvpForm');
-
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  const fullname = document.getElementById('fullname').value.trim();
-  const attending = document.getElementById('attending').value;
-
-  if (!fullname || !attending) {
-    alert("Please complete all required fields.");
-    return;
-  }
-
-  const msg = `RSVP for Sania & Zyn:\nName: ${fullname}\nAttending: ${attending}`;
-  const phone = "27843017770"; // WhatsApp number
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-
-  window.open(url, "_blank");
-  form.reset();
-});
-</script>
-
-</body>
-</html>
+      const message = `RSVP Confirmation:

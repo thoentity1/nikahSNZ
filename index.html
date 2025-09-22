@@ -41,15 +41,16 @@
       display:grid;
       grid-template-columns: 1fr 420px;
       box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      min-height: 680px; /* ensures left side is visible */
     }
 
     /* Invitation side */
     .invite{
       background: url('My Invitation.jpeg') center center no-repeat;
-      background-size: contain; /* Fit full image */
+      background-size: cover; /* fill left panel fully */
       width: 100%;
-      min-height: 680px;
       height: 100%;
+      min-height: 680px;
     }
 
     /* RSVP side */

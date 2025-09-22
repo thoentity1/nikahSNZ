@@ -47,11 +47,11 @@
     /* Invitation side */
     .invite{
       background: url('My Invitation.jpg') center center no-repeat;
-      background-size: cover; /* fill panel */
+      background-size: cover;
       width: 100%;
-      height: 70%;
+      height: 100%;
       min-height: 680px;
-      border: 5px solid #d99b83; /* border around image */
+      border: 5px solid #d99b83; /* border around the invitation */
       border-radius: 12px;
       box-sizing: border-box;
     }
@@ -140,12 +140,12 @@
 
 <!-- WhatsApp RSVP Script -->
 <script>
-const form=document.getElementById('rsvpForm');
+const form = document.getElementById('rsvpForm');
 
-form.addEventListener('submit', e=>{
+form.addEventListener('submit', e => {
   e.preventDefault();
-  const fullname=document.getElementById('fullname').value.trim();
-  const attending=document.getElementById('attending').value;
+  const fullname = document.getElementById('fullname').value.trim();
+  const attending = document.getElementById('attending').value;
 
   if(!fullname || !attending){
     alert("Please complete all required fields.");
@@ -153,7 +153,7 @@ form.addEventListener('submit', e=>{
   }
 
   const msg = `RSVP for Sania & Zyn:\nName: ${fullname}\nAttending: ${attending}`;
-  const phone = "27843017770";
+  const phone = "27843017770"; // WhatsApp number
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 
   window.open(url, "_blank");

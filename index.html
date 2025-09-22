@@ -41,14 +41,17 @@
 
   .invite-container {
     flex: 1;
+    overflow-y: auto; /* scroll if image is tall */
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: flex-start;
     padding: 10px;
+    background: #fff;
   }
 
   .invite-container img {
-    max-height: 60%;
+    width: 100%;
+    height: auto;
     max-width: 100%;
     object-fit: contain;
     display: block;
@@ -185,7 +188,10 @@ inviteForm.addEventListener('submit', e => {
     return;
   }
 
-  const msg = `Dear ${guestname},\n\nYou are invited to the wedding of Sania & Zyn 🎉\nAdmits: ${admit}\n\nPlease RSVP using the link provided.`;
+  // Add RSVP link (this page URL — replace with your hosted link if different)
+  const rsvpLink = window.location.href;
+
+  const msg = `Dear ${guestname},\n\nYou are invited to the wedding of Sania & Zyn 🎉\nAdmits: ${admit}\n\nPlease RSVP here: ${rsvpLink}`;
   const url = `https://wa.me/${guestphone}?text=${encodeURIComponent(msg)}`;
 
   window.open(url, "_blank");

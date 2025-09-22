@@ -41,21 +41,24 @@
       grid-template-columns: 1fr 420px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       min-height: 680px;
+      align-items: center;
     }
 
     /* Invitation container */
     .invite-container {
       display: flex;
-      align-items: center;   /* vertical center */
-      justify-content: center; /* horizontal center */
+      align-items: center;
+      justify-content: center;
       min-height: 680px;
+      padding: 10px; /* optional padding around image */
     }
 
     .invite {
       background: url('My Invitation.jpg') center center no-repeat;
-      background-size: cover;
-      width: 90%;       /* adjust width as needed */
-      height: 80%;      /* 80% height of parent */
+      background-size: contain; /* show entire image */
+      width: 100%;
+      height: 100%;
+      max-height: 90%; /* optional max height */
       border: 5px solid #d99b83;
       border-radius: 12px;
       box-sizing: border-box;

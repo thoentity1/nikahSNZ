@@ -25,7 +25,6 @@
 
     body {
       background: var(--bg);
-      color: var(--text);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -39,29 +38,36 @@
       border-radius: 14px;
       overflow: hidden;
       display: grid;
-      grid-template-columns: 1fr 420px; /* left = invite, right = RSVP */
+      grid-template-columns: 1fr 420px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       min-height: 680px;
     }
 
-    /* Invitation side */
+    /* Invitation container */
+    .invite-container {
+      display: flex;
+      align-items: center;   /* vertical center */
+      justify-content: center; /* horizontal center */
+      min-height: 680px;
+    }
+
     .invite {
       background: url('My Invitation.jpg') center center no-repeat;
       background-size: cover;
+      width: 90%;       /* adjust width as needed */
+      height: 80%;      /* 80% height of parent */
       border: 5px solid #d99b83;
       border-radius: 12px;
-      min-height: 680px;
-      height: 100%;
+      box-sizing: border-box;
     }
 
     /* RSVP side */
     .rsvp {
       padding: 36px;
       background: #fafafa;
-      min-height: 680px;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* vertically center content */
+      justify-content: center;
     }
 
     .rsvp h2 {
@@ -105,7 +111,7 @@
       .wrap {
         grid-template-columns: 1fr;
       }
-      .invite {
+      .invite-container {
         order: 2;
         min-height: 480px;
       }
@@ -119,7 +125,9 @@
 
 <div class="wrap">
   <!-- Invitation -->
-  <section class="invite"></section>
+  <div class="invite-container">
+    <div class="invite"></div>
+  </div>
 
   <!-- RSVP Form -->
   <aside class="rsvp">

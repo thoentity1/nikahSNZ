@@ -1,1 +1,161 @@
-<!doctype html> <html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width,initial-scale=1" /> <title>Sania & Zyn — Invitation & RSVP</title> <!-- Google font --> <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Roboto:wght@300;400&display=swap" rel="stylesheet"> <style> :root{ --bg:#f7efe8; --accent:#d99b83; --text:#262626; /* darker font color */ --muted:#6b6461; --max-width:1100px; } html,body{ height:100%;margin:0; font-family:"Roboto",sans-serif; } body{ background:var(--bg); color:var(--text); display:flex; align-items:center; justify-content:center; padding:40px 20px; } .wrap{ max-width:var(--max-width); width:100%; background:#fff; border-radius:14px; overflow:hidden; display:grid; grid-template-columns: 1fr 420px; box-shadow:0 10px 30px rgba(0,0,0,0.08); } /* Invitation side */ .invite{ position:relative; padding:48px; display:flex; justify-content:center; background:url('My Invitation.jpeg') center/cover no-repeat; min-height:680px; } .invite .panel{ background:rgba(255,255,255,0.85); padding:20px; border-radius:12px; max-width:460px; } .invite .arabic{ font-family:"Playfair Display", serif; font-size:32px; text-align:center; margin-bottom:8px; } .invite .verse{ font-size:13px; color:var(--muted); text-align:center; margin-bottom:14px; font-style:italic; } .invite h1{ font-family:"Playfair Display", serif; font-size:30px; margin:6px 0 8px 0; text-align:left; font-weight:400; } .invite .names{ font-size:40px; text-align:left; margin:12px 0; font-weight:400; } .invite .meta{ font-style:italic; color:var(--muted); margin:10px 0; } .timings{ text-align:left; font-size:16px; margin:8px 0; font-weight:400; } /* RSVP side */ .rsvp{ padding:36px; background:#fafafa; } .rsvp h2{ font-family:"Playfair Display", serif; font-size:22px; margin:0 0 12px; font-weight:400; } form label{ display:block; font-size:13px; margin-bottom:4px; color:var(--muted); } input,select{ width:100%; padding:10px; border:1px solid #ddd; border-radius:8px; margin-bottom:14px; font-size:14px; } .btn{ background:var(--accent); color:#fff; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:14px; } .btn:hover{ background:#c6846c; } @media(max-width:900px){ .wrap{grid-template-columns:1fr;} .invite{order:2;padding:28px;min-height:480px;} .rsvp{order:1;} } </style> </head> <body> <div class="wrap"> <!-- Invitation --> <section class="invite"> <div class="panel"> <div class="arabic">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div> <div class="verse">(And He (Allah) put affection between your hearts. — Qurʼan 8:63)</div> <h1>kindly join us</h1> <p style="font-size:13px;text-align:left;">together with our families for the wedding of</p> <div class="names">Sania McKenzie<br>&amp;<br>Zyn Touffie</div> <div class="meta">Saturday, 22 November 2025</div> <div class="timings">Nikah 14h30 — Reception 15h30</div> <div class="meta">21 Barnacle Street<br>Towerby, Buena Vista Country Estate</div> <p style="font-size:13px;text-align:left;">RSVP Sania 084 301 7770 by 6 November '25</p> </div> </section> <!-- RSVP Form --> <aside class="rsvp"> <h2>RSVP</h2> <form id="rsvpForm"> <label for="fullname">Full Name *</label> <input type="text" id="fullname" required> <label for="attending">Attending *</label> <select id="attending" required> <option value="">Please choose</option> <option value="Yes">Yes — I will attend</option> <option value="No">No — cannot attend</option> </select> <button type="submit" class="btn">Send RSVP via WhatsApp</button> </form> </aside> </div> <!-- WhatsApp RSVP Script --> <script> const form=document.getElementById('rsvpForm'); form.addEventListener('submit',e=>{ e.preventDefault(); const fullname=document.getElementById('fullname').value.trim(); const attending=document.getElementById('attending').value; if(!fullname||!attending){ alert("Please complete all required fields."); return; } // Create WhatsApp message const msg = RSVP for Sania & Zyn:\nName: ${fullname}\nAttending: ${attending}; const phone = "27843017770"; // WhatsApp number const url = https://wa.me/${phone}?text=${encodeURIComponent(msg)}; // Open WhatsApp chat in new tab window.open(url, "_blank"); form.reset(); }); </script> </body> </html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sania & Zyn — Invitation & RSVP</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f7efe8;
+      --accent:#d99b83;
+      --text:#262626;
+      --muted:#6b6461;
+      --max-width:1100px;
+    }
+
+    html, body{
+      height:100%;
+      margin:0;
+      font-family:"Roboto",sans-serif;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+    }
+
+    .wrap{
+      max-width:var(--max-width);
+      width:100%;
+      background:#fff;
+      border-radius:14px;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    /* Invitation side */
+    .invite{
+      background: url('My Invitation.jpeg') center center no-repeat;
+      background-size: contain; /* Fit full image */
+      width: 100%;
+      min-height: 680px;
+      height: 100%;
+    }
+
+    /* RSVP side */
+    .rsvp{
+      padding:36px;
+      background:#fafafa;
+    }
+
+    .rsvp h2{
+      font-family:"Playfair Display", serif;
+      font-size:22px;
+      margin:0 0 12px;
+      font-weight:400;
+    }
+
+    form label{
+      display:block;
+      font-size:13px;
+      margin-bottom:4px;
+      color:var(--muted);
+    }
+
+    input, select{
+      width:100%;
+      padding:10px;
+      border:1px solid #ddd;
+      border-radius:8px;
+      margin-bottom:14px;
+      font-size:14px;
+    }
+
+    .btn{
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:10px 16px;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:14px;
+    }
+
+    .btn:hover{
+      background:#c6846c;
+    }
+
+    @media(max-width:900px){
+      .wrap{
+        grid-template-columns:1fr;
+      }
+      .invite{
+        order:2;
+        min-height:480px;
+      }
+      .rsvp{
+        order:1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- Invitation -->
+  <section class="invite"></section>
+
+  <!-- RSVP Form -->
+  <aside class="rsvp">
+    <h2>RSVP</h2>
+    <form id="rsvpForm">
+      <label for="fullname">Full Name *</label>
+      <input type="text" id="fullname" required>
+
+      <label for="attending">Attending *</label>
+      <select id="attending" required>
+        <option value="">Please choose</option>
+        <option value="Yes">Yes — I will attend</option>
+        <option value="No">No — cannot attend</option>
+      </select>
+
+      <button type="submit" class="btn">Send RSVP via WhatsApp</button>
+    </form>
+  </aside>
+</div>
+
+<!-- WhatsApp RSVP Script -->
+<script>
+const form=document.getElementById('rsvpForm');
+
+form.addEventListener('submit', e=>{
+  e.preventDefault();
+  const fullname=document.getElementById('fullname').value.trim();
+  const attending=document.getElementById('attending').value;
+
+  if(!fullname || !attending){
+    alert("Please complete all required fields.");
+    return;
+  }
+
+  const msg = `RSVP for Sania & Zyn:\nName: ${fullname}\nAttending: ${attending}`;
+  const phone = "27843017770";
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+
+  window.open(url, "_blank");
+  form.reset();
+});
+</script>
+
+</body>
+</html>

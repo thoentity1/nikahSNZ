@@ -48,15 +48,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px;
+      padding: 20px;
     }
 
     .invite-container img {
-      height: 60%;        /* 60% of container height */
-      width: auto;        /* maintain aspect ratio */
+      height: 70%;      /* scaled to fit nicely */
+      width: auto;
       border: 5px solid #d99b83;
       border-radius: 12px;
       display: block;
+      object-fit: contain;
     }
 
     /* RSVP side */
@@ -116,7 +117,7 @@
         order: 1;
       }
       .invite-container img {
-        height: 60%;
+        height: 50%;
       }
     }
   </style>
@@ -148,7 +149,6 @@
   </aside>
 </div>
 
-<!-- WhatsApp RSVP Script -->
 <script>
 const form = document.getElementById('rsvpForm');
 
